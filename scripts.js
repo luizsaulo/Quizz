@@ -171,6 +171,8 @@ function nextQuestion() {
         //verifica se ainda há perguntas
         if(actualQuestion >= questions.length) {
             //apresenta a mensagem de sucesso
+            showSucessMessage();
+            return;
         }
 
         createQuestion(actualQuestion);
@@ -179,5 +181,34 @@ function nextQuestion() {
 
 }
 
+//exibe a tela final
+function showSuccessMessage() {
+
+    hideOrShowQuizz();
+    
+    // trocar dados da tela de sucesso
+    
+    // calcular o scrore
+    const score = ((points / questions.length) * 100).toFixed(2);
+    
+    const displayScore = document.querySelector('#display-score span');
+    
+    displayScore.textContent = score.toString();
+    
+    // alterar o número de perguntas corretas
+    const correctAnswers = document.querySelector("#correct-answers");
+    correctAnswers.textContent = points;
+
+    // alterar o total de perguntas
+    const totalQuestions = document.querySelector("#questions-qty");
+    totalQuestions.textContent = questions.length;
+
+}
+
+// Mostra ou esconde o score
+function hideOrShowQuizz() {
+    quizzContainer.classList.toggle('hide');
+    scoreContainer.classList.toggle('hide');
+}
 //Inicialização do quizz
 init();
