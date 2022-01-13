@@ -1,4 +1,5 @@
-# Hash
+# Quizz
+
 Creation of a Quizz game
 
 ## 🚀 Starting
